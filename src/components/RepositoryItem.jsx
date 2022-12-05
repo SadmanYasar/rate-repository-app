@@ -26,7 +26,7 @@ const RepositoryItem = ({ item }) => {
                 fadeDuration={300}
                 borderRadius={10}
             />
-            <Text>Full Name: {item.fullName}</Text>
+            <Text fontWeight={'bold'}>{item.fullName}</Text>
             <Text>Description: {item.description}</Text>
             <Text color={'textSecondary'}
                 style={{
@@ -38,8 +38,16 @@ const RepositoryItem = ({ item }) => {
             >
                 {item.language}
             </Text>
-            <Text>Stars: {item.stargazersCount}</Text>
-            <Text>Forks: {item.forksCount}</Text>
+            <Text>
+                {item.stargazersCount < 1000
+                    ? item.stargazersCount
+                    : (item.stargazersCount / 1000).toFixed(1) + 'k Stars'}
+            </Text>
+            <Text>
+                {item.forksCount < 1000
+                    ? item.forksCount
+                    : (item.forksCount / 1000).toFixed(1) + 'k Forks'}
+            </Text>
             <Text>Reviews: {item.reviewCount}</Text>
             <Text>Rating: {item.ratingAverage}</Text>
         </View>
