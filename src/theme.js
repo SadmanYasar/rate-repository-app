@@ -5,7 +5,8 @@ const theme = {
         primary: '#0366d6',
         bgAppBar: '#24292e',
         bgMain: '#e1e4e8',
-        buttonPrimary: '#0366d6'
+        buttonPrimary: '#0366d6',
+        bgCard: 'white'
     },
     fontSizes: {
         body: 14,
