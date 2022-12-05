@@ -1,10 +1,24 @@
-import { View } from "react-native";
+import { View, Image, StyleSheet } from "react-native";
 import Text from "./Text";
+
+const styles = StyleSheet.create({
+    img: {
+        width: 50,
+        height: 50
+    }
+})
 
 const RepositoryItem = ({ item }) => {
     return (
         <View>
-            <Text color={'primary'}>Full Name: {item.fullName}</Text>
+            <Image
+                style={styles.img}
+                source={{
+                    uri: item.ownerAvatarUrl
+                }}
+                fadeDuration={300}
+            />
+            <Text>Full Name: {item.fullName}</Text>
             <Text>Description: {item.description}</Text>
             <Text>Language: {item.language}</Text>
             <Text>Stars: {item.stargazersCount}</Text>
