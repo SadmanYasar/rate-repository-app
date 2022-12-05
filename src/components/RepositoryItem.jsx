@@ -15,6 +15,11 @@ const styles = StyleSheet.create({
     }
 })
 
+/*
+==============================
+TODO - Add flex to design card
+==============================
+*/
 const RepositoryItem = ({ item }) => {
     return (
         <View style={styles.container}>
