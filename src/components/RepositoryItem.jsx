@@ -17,6 +17,13 @@ const styles = StyleSheet.create({
         display: 'flex',
         flexDirection: 'row',
         flexGrow: 1,
+        paddingBottom: 20
+    },
+    flexBottom: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+        flexGrow: 1,
     },
     flexItemDesc: {
         display: 'flex',
@@ -27,11 +34,6 @@ const styles = StyleSheet.create({
     }
 })
 
-/*
-==============================
-TODO - Add flex to design card
-==============================
-*/
 const RepositoryItem = ({ item }) => {
     return (
         <View style={styles.container}>
@@ -63,20 +65,31 @@ const RepositoryItem = ({ item }) => {
                     </View>
                 </View>
             </View>
-            <View>
-                <Text>
-                    {item.stargazersCount < 1000
-                        ? item.stargazersCount
-                        : (item.stargazersCount / 1000).toFixed(1) + 'k Stars'}
-                </Text>
-                <Text>
-                    {item.forksCount < 1000
-                        ? item.forksCount
-                        : (item.forksCount / 1000).toFixed(1) + 'k Forks'}
-                </Text>
-                <Text>Reviews: {item.reviewCount}</Text>
-                <Text>Rating: {item.ratingAverage}</Text>
+            <View style={styles.flexBottom}>
+                <Stat count={item.stargazersCount < 1000
+                    ? item.stargazersCount
+                    : (item.stargazersCount / 1000).toFixed(1) + 'k'}
+                    text={'Stars'} />
+                <Stat count={item.forksCount < 1000
+                    ? item.forksCount
+                    : (item.forksCount / 1000).toFixed(1) + 'k'}
+                    text={'Forks'} />
+                <Stat count={item.reviewCount} text={'Reviews'} />
+                <Stat count={item.ratingAverage} text={'Rating'} />
             </View>
+        </View>
+    )
+}
+
+const Stat = ({ count, text }) => {
+    return (
+        <View style={{
+            display: 'flex',
+            flexDirection: 'column',
+            flexGrow: 1
+        }}>
+            <Text fontWeight={'bold'}>{count}</Text>
+            <Text>{text}</Text>
         </View>
     )
 }
