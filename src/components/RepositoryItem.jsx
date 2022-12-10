@@ -49,20 +49,7 @@ const RepositoryItem = ({ item }) => {
                 <View style={styles.flexItemDesc}>
                     <Text fontWeight={'bold'}>{item.fullName}</Text>
                     <Text color={'textSecondary'}>{item.description}</Text>
-                    <View style={{
-                        paddingTop: 10
-                    }}>
-                        <Text color={'buttonTextPrimary'}
-                            style={{
-                                backgroundColor: theme.colors.buttonPrimary,
-                                alignSelf: 'flex-start',
-                                padding: 5,
-                                borderRadius: 5
-                            }}
-                        >
-                            {item.language}
-                        </Text>
-                    </View>
+                    <LanguageTag language={item.language} />
                 </View>
             </View>
             <View style={styles.flexBottom}>
@@ -90,6 +77,25 @@ const Stat = ({ count, text }) => {
         }}>
             <Text fontWeight={'bold'}>{count}</Text>
             <Text>{text}</Text>
+        </View>
+    )
+}
+
+const LanguageTag = ({ language }) => {
+    return (
+        <View style={{
+            paddingTop: 10
+        }}>
+            <Text color={'buttonTextPrimary'}
+                style={{
+                    backgroundColor: theme.colors.buttonPrimary,
+                    alignSelf: 'flex-start',
+                    padding: 5,
+                    borderRadius: 5
+                }}
+            >
+                {language}
+            </Text>
         </View>
     )
 }
