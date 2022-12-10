@@ -1,4 +1,4 @@
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import Constants from 'expo-constants';
 import Text from './Text';
 import theme from '../theme';
@@ -20,20 +20,22 @@ const styles = StyleSheet.create({
 const AppBar = () => {
     return (
         <View style={styles.container}>
-            <View style={styles.child}>
-                <Link to="/">
-                    <Text color={'textSecondary'} fontSize={'subheading'} fontWeight={'bold'}>
-                        Repositories
-                    </Text>
-                </Link>
-            </View>
-            <View style={styles.child}>
-                <Link to="/signIn">
-                    <Text color={'textSecondary'} fontSize={'subheading'} fontWeight={'bold'}>
-                        Sign in
-                    </Text>
-                </Link>
-            </View>
+            <ScrollView horizontal>
+                <View style={styles.child}>
+                    <Link to="/">
+                        <Text color={'textSecondary'} fontSize={'subheading'} fontWeight={'bold'}>
+                            Repositories
+                        </Text>
+                    </Link>
+                </View>
+                <View style={styles.child}>
+                    <Link to="/signIn">
+                        <Text color={'textSecondary'} fontSize={'subheading'} fontWeight={'bold'}>
+                            Sign in
+                        </Text>
+                    </Link>
+                </View>
+            </ScrollView>
         </View>
     );
 };
