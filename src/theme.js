@@ -7,7 +7,8 @@ const theme = {
         bgMain: '#e1e4e8',
         buttonPrimary: '#0366d6',
         buttonTextPrimary: 'white',
-        bgCard: 'white'
+        bgCard: 'white',
+        error: '#d73a4a'
     },
     fontSizes: {
         body: 14,

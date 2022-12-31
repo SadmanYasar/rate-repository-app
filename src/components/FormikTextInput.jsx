@@ -7,7 +7,8 @@ import theme from '../theme';
 
 const styles = StyleSheet.create({
     errorText: {
-        marginTop: 5,
+        color: theme.colors.error,
+        paddingBottom: 3,
     },
     textInput: {
         borderWidth: 1,
@@ -25,6 +26,7 @@ const FormikTextInput = ({ name, ...props }) => {
 
     return (
         <>
+            {showError && <Text style={styles.errorText}>{meta.error}</Text>}
             <TextInput
                 style={styles.textInput}
                 onChangeText={value => helpers.setValue(value)}
@@ -33,7 +35,6 @@ const FormikTextInput = ({ name, ...props }) => {
                 error={showError}
                 {...props}
             />
-            {showError && <Text style={styles.errorText}>{meta.error}</Text>}
         </>
     );
 };
